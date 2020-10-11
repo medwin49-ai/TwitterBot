@@ -1,10 +1,14 @@
 {
   "name": "twitterbot",
   "version": "1.0.0",
-  "description": "A bot for twitter",
-  "main": "bot.js",
+  "description": "Twitter Bot",
+  "main": "index.js",
+  "dependencies": {
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start" : "node bot.js",
+    "start" : "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

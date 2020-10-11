@@ -16,7 +16,7 @@ var tweet = {
 T.post('statuses/update', tweet, tweered );
 
 
-function tweeed (err, data, response) {
+function tweered (err, data, response) {
     console.log(data)
     if ( err){
         console.log(data);

@@ -5,9 +5,14 @@ var fs= require('fs');
 var T = new Twit(configs)
 var D = require('./dayOfTheWeek.js');
 
-var dayInMilliseconds = 1000 * 60 * 60 * 24;
-Processing();
-setInterval(Processing ,dayInMilliseconds );
+
+window.setInterval(function(){ // Set interval for checking
+    var date = new Date(); // Create a Date object to find out what time it is
+    if(date.getHours() === 8 && date.getMinutes() === 0){ // Check the time
+       Processing();
+    }
+} , 60000); // Repeat every 60000 milliseconds (1 minute)
+
 function Processing(){
     var filename = DayOfWeek();
     var params ={
@@ -42,7 +47,7 @@ function Processing(){
   }
 }
   
-
+// Making the days of the week into an array
 function DayOfWeek(){
     var d = new Date()
     var weekday = new Array(7);
@@ -53,36 +58,17 @@ function DayOfWeek(){
   weekday[4] = "Thursday";
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
-
+// Calculating the day of the week.
 var n = weekday[d.getDay()];
-  var myText = '';
-if( n == weekday[0]){
-    return 'Krabs/itbeasunday.jpg';
-} 
-else if( n == weekday[1]){
-    return 'Krabs/itbeamonday.jpeg';
-} 
+var j = 0;   
+for( j <= weekday.length; j++;){
 
-else if(n == weekday[3]) {
-    return 'Krabs/itbeawens.jpg';
+    if( n == weekday[j]){
+        return 'Krabs/pic' + i + '.jpg';
+}
+}
 }
 
-else if ( n == weekday[4]){
-    return 'Krabs/itbeathurs.jpg';
-}
-
-else if( n == weekday[5]){
-    return Mess='Krabs/itbeafriday.jpg';
-}
-else if( n == weekday[6]){
-    return 'Krabs/itbeasat.jpg';
-}
-else {
-    return "Krabs/krabsmad.png"
-}
-
-
-}
 
 
 // first we must post the media to Twitter

@@ -1,13 +1,11 @@
 var Twit = require('twit');
 var configs = require('./configs.js');
 var fs= require('fs');
-
 var T = new Twit(configs)
-var D = require('./dayOfTheWeek.js');
 
 
-window.setInterval(function(){ // Set interval for checking
-    var date = new Date(); // Create a Date object to find out what time it is
+setInterval(function(){ // Set interval for checking
+   var date = new Date(); // Create a Date object to find out what time it is
     if(date.getHours() === 8 && date.getMinutes() === 0){ // Check the time
        Processing();
     }
@@ -60,12 +58,13 @@ function DayOfWeek(){
   weekday[6] = "Saturday";
 // Calculating the day of the week.
 var n = weekday[d.getDay()];
-var j = 0;   
-for( j <= weekday.length; j++;){
-
+var j   
+for( j= 0 ; j <=weekday.length; j++){
     if( n == weekday[j]){
-        return 'Krabs/pic' + i + '.jpg';
+        var numday = j.toString() 
+        return 'Krabs/pic' + numday + '.jpg';
 }
+
 }
 }
 

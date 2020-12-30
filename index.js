@@ -1,7 +1,14 @@
 var Twit = require('twit');
 var configs = require('./configs.js');
 var fs= require('fs');
-var T = new Twit(configs)
+var T = new Twit({
+    consumer_key:   process.env.API_KEY,
+  consumer_secret:      process.env.SECRET,
+  access_token:         process.env.ACCESS,
+  access_token_secret:  process.env.TOKEN,
+})
+
+require('dotenv').config();
 
 
 setInterval(function(){ // Set interval for checking
